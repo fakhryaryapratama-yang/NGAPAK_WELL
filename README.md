@@ -1,4 +1,5 @@
-### Hi there 👋
-* 🤝 I’m looking to collaborate on some project
-* 🤔 I’m looking for help with make web HTML
-* 📫 How to reach us: 
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?text=Hey Everyone!🕹️&animation=fadeIn&type=waving&color=gradient&height=100"/>
+</p>
+
+
