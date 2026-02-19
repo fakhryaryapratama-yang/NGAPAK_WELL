@@ -23,3 +23,26 @@ def export_pdf():
     c.setFont("Helvetica-Bold", 10)
     c.drawString(50, y, f"Tanggal Cetak : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     y -= 25
+    
+    c.line(50, y, width - 50, y)
+    y -= 20
+    
+    for t in rows:
+        if y < 50:
+            c.showPage()
+            y = height - 50
+            
+        teks = f"{t[0]} | {t[1]} | {format_rupiah(t[2])} | {t[3]} | {t[4]}"
+        c.drawString(50, y, teks[:110])
+        y -= 15
+        
+    y -= 15
+    c.line(50, y, width - 50, y)
+    y -= 20 
+    
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(50, y, f"Saldo Akhir : {format_rupiah(hitung_saldo())}")
+    
+    c.save()
+    print(f"\n✅ Laporan PDF berhasil dibuat: {FILE_PDF}")
+    
