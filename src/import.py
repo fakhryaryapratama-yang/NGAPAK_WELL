@@ -22,3 +22,24 @@ def input_rupiah(prompt):
         except ValueError:
             print("❌ Masukkan angka yang benar! Contoh: 100.000")
 
+#=========================
+#DATABASE
+#=========================
+def get_connection():
+    return sqlite3.connect(DB_FILE)
+
+def init_db():
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS kas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            tanggal TEXT,
+            petugas TEXT,
+            jenis TEXT,
+            keterangan TEXT,
+            jumlah INTEGER
+        )
+    """)
+    conn.commit()
+    conn.close()
