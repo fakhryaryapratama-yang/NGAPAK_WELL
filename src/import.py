@@ -61,8 +61,11 @@ def init_db():
 #=======================
 def get_petugas():
     try:
-        return os.getlogin()
+        user =  os.getlogin()
     except:
-        return os.environ.get("USERNAME") or os.environ.get("USER") or "unknown"
+        user = os.environ.get("USERNAME") or os.environ.get("USER")
+    
+    return user.strip() if user else "Unknown"
+
 def get_tanggal_sekarang():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
