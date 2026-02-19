@@ -46,3 +46,44 @@ def export_pdf():
     c.save()
     print(f"\n✅ Laporan PDF berhasil dibuat: {FILE_PDF}")
     
+# ===================
+# MENU
+# ===================
+def menu():
+    init_db()
+    petugas = get_petugas()
+    
+    print("===============================")
+    print(" SISTEM PENGELOLAAN KAS TAKMIR ")
+    print("===============================")
+    print(f"Petugas: {petugas}")
+  
+    while True:
+        print("\nMenu:")
+        print("1. Input Kas Masuk")
+        print("2. Input Kas Keluar")
+        print("3. Lihat Laporan Kas")
+        print("4. Export Laporan ke PDF")
+        print("5. Keluar")
+        
+        pilih = input("Pilih menu (1-5): ")
+        
+        if pilih == '1':
+            input_kas("masuk")
+        elif pilih == '2':
+            input_kas("keluar")
+        elif pilih == '3':
+            laporan()
+        elif pilih == '4':
+            export_pdf()
+        elif pilih == '5':
+            print("\nAplikasi ditutup.")
+            break
+        else:
+            print("Pilihan tidak valid, silakan coba lagi.")
+            
+# ===================
+# MAIN
+# ===================
+if __name__ == "__main__":
+    menu()
