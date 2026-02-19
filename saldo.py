@@ -1,7 +1,3 @@
-import os
-import sqlite3
-from datetime import datetime
-
 def hitung_saldo():
     conn = get_connection()
     cur = conn.cursor()
@@ -38,3 +34,11 @@ def input_kas(jenis):
 
     print("\n✅ Transaksi berhasil dicatat")
     print(f"Saldo saat ini : {format_rupiah(hitung_saldo())}")
+    
+def input_kas(jenis):
+    conn = get_connection()
+    cur = conn.cursor()
+
+    petugas = get_petugas()
+    keterangan = input("Keterangan      : ")
+    jumlah = input_rupiah("Jumlah (Rp)     : ")
