@@ -10,6 +10,7 @@ def hitung_saldo():
     conn.close()
     return saldo if saldo else 0
 
+
 def input_kas(jenis):
     conn = get_connection()
     cur = conn.cursor()
