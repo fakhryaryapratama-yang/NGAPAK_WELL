@@ -16,7 +16,13 @@ def format_rupiah(angka):
 def input_rupiah(prompt):
     while True:
         try:
-            nilai = input(prompt)
+            nilai = input(prompt).strip()
+
+            if not nilai:
+                print("❌ Input tidak boleh kosong!")
+                continue
+
+
             nilai_bersih = nilai.replace(".", "").replace(",", "")
             return int(nilai_bersih)
         except ValueError:
