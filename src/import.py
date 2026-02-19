@@ -64,3 +64,5 @@ def get_petugas():
         return os.getlogin()
     except:
         return os.environ.get("USERNAME") or os.environ.get("USER") or "unknown"
+def get_tanggal_sekarang():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
