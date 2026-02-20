@@ -16,20 +16,8 @@ def format_rupiah(angka):
 def input_rupiah(prompt):
     while True:
         try:
-            nilai = input(prompt).strip()
-
-            if not nilai:
-                print("❌ Input tidak boleh kosong!")
-                continue
-
-
-            nilai_bersih = (
-                nilai.replace("Rp", "")
-                    .replace("rp", "")
-                    .replace(".", "")
-                    .replace(",", "")
-                    .strip()
-            )
+            nilai = input(prompt)
+            nilai_bersih = nilai.replace(".", "").replace(",", "")
             return int(nilai_bersih)
         except ValueError:
             print("❌ Masukkan angka yang benar! Contoh: 100.000")
@@ -61,11 +49,6 @@ def init_db():
 #=======================
 def get_petugas():
     try:
-        user =  os.getlogin()
+        return os.getlogin()
     except:
-        user = os.environ.get("USERNAME") or os.environ.get("USER")
-    
-    return user.strip() if user else "Unknown"
-
-def get_tanggal_sekarang():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return os.environ.get("USERNAME") or os.environ.get("USER") or "unknown"
